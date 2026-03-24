@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --paper-bg: #fdfdfd;
+        --line-color: #e2e8f0;
+        --spine-width: 50px;
+    }
+
+    body {
+        @apply bg-slate-50 text-slate-800 font-sans antialiased;
+        background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+        background-size: 20px 20px;
+    }
+}
+
+@layer components {
+    /* Main Notebook Structure */
+    .notebook-shell {
+        @apply max-w-7xl mx-auto my-8 shadow-2xl rounded-xl overflow-hidden flex bg-white min-h-[85vh] border border-slate-200;
+    }
+
+    .notebook-spine {
+        @apply w-[var(--spine-width)] bg-slate-900 flex flex-col justify-around py-12 shrink-0 relative;
+    }
+
+    .spine-ring {
+        @apply w-12 h-3 -mr-6 self-end rounded-full bg-gradient-to-r from-slate-700 to-slate-400 border border-slate-800 shadow-md;
+    }
+
+    .notebook-page-body {
+        @apply flex-grow relative bg-[var(--paper-bg)];
+        background-image: linear-gradient(var(--line-color) 1px, transparent 1px);
+        background-size: 100% 2.5rem;
+        background-position: 0 1.5rem;
+    }
+
+    .notebook-margin-line {
+        @apply absolute top-0 bottom-0 w-[1px] bg-red-200 left-12 z-10;
+    }
+
+    .notebook-inner-content {
+        @apply relative z-20 pl-20 pr-10 pt-16 pb-20;
+    }
+
+    /* Fixed Line Heights for Lined Paper Effect */
+    .lined-text-group h1, 
+    .lined-text-group h2, 
+    .lined-text-group p {
+        line-height: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Professional Button Design */
+    .btn {
+        @apply inline-flex items-center justify-center px-6 py-2.5 rounded-xl font-bold transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+
+    .btn-primary {
+        @apply bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-200 focus:ring-slate-500;
+    }
+
+    .btn-secondary {
+        @apply bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 shadow-sm focus:ring-slate-300;
+    }
+
+    .btn-danger {
+        @apply bg-red-600 text-white hover:bg-red-700 shadow-lg shadow-red-100 focus:ring-red-500;
+    }
+
+    .btn-success {
+        @apply bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-100 focus:ring-emerald-500;
+    }
+
+    .btn-indigo {
+        @apply bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-100 focus:ring-indigo-500;
+    }
+
+    /* Card Design */
+    .card-entry {
+        @apply bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative;
+    }
+
+    /* Form Inputs */
+    .input-field {
+        @apply w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-indigo-500 focus:border-indigo-500 transition-all;
+    }
+
+    /* Admin Sidebar / Nav Pill */
+    .nav-pill {
+        @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-slate-500 hover:bg-slate-50 hover:text-slate-900 transition-all;
+    }
+
+    .nav-pill-active {
+        @apply bg-slate-900 text-white shadow-lg shadow-slate-200 hover:bg-slate-800 hover:text-white;
+    }
+}
